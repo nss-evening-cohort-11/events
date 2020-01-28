@@ -137,9 +137,17 @@ const findMyPies = (e) => {
   }
 };
 
-pieBuilder(pies);
-document.getElementById('Zoe').addEventListener('click', findMyPies);
-document.getElementById('Mary').addEventListener('click', findMyPies);
-document.getElementById('Luke').addEventListener('click', findMyPies);
-document.getElementById('Greg').addEventListener('click', findMyPies);
-document.getElementById('All').addEventListener('click', findMyPies);
+const events = () => {
+  document.getElementById('Zoe').addEventListener('click', findMyPies);
+  document.getElementById('Mary').addEventListener('click', findMyPies);
+  document.getElementById('Luke').addEventListener('click', findMyPies);
+  document.getElementById('Greg').addEventListener('click', findMyPies);
+  document.getElementById('All').addEventListener('click', findMyPies);
+};
+
+const init = () => {
+  pieBuilder(pies);
+  events();
+};
+
+init();
