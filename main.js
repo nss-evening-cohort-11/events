@@ -106,20 +106,35 @@ const printToDom = (divId, textToPrint) => {
 // 3 cards to a row
 // nice big images
 // display all information in the pie objects
-const pieBuilder = () => {
+const pieBuilder = (monkeybuttArray) => {
   // define domString
   let domString = '';
   // loop over pies array
-  for(let i = 0; i < pies.length; i++){
+  for(let i = 0; i < monkeybuttArray.length; i++){
     // add to domString
     domString += '<div class="card">';
-    domString += `<h2>${pies[i].name}</h2>`;
-    domString += `<img src=${pies[i].imageUrl} />`;
-    domString += `<p>Ice Cream Flavor: ${pies[i].iceCream}</p>`;
+    domString += `<h2>${monkeybuttArray[i].name}</h2>`;
+    domString += `<img src=${monkeybuttArray[i].imageUrl} />`;
+    domString += `<p>Ice Cream Flavor: ${monkeybuttArray[i].iceCream}</p>`;
     domString += '</div>';
   }
   // call printToDom
   printToDom('pie-place', domString);
 };
 
-pieBuilder();
+const findMyPies = (e) => {
+  const buttonId = e.target.id;
+  const myPies = [];
+  for(let i = 0; i < pies.length; i++){
+    if( pies[i].instructor === buttonId ) {
+      myPies.push(pies[i]);
+    }
+  }
+  pieBuilder(myPies);
+};
+
+pieBuilder(pies);
+document.getElementById('Zoe').addEventListener('click', findMyPies);
+document.getElementById('Mary').addEventListener('click', findMyPies);
+document.getElementById('Luke').addEventListener('click', findMyPies);
+document.getElementById('Greg').addEventListener('click', findMyPies);
