@@ -97,8 +97,6 @@ const pies = [
   }
 ];
 
-console.log('pies', pies);
-
 // Make printToDom
 const printToDom = (divId, textToPrint) => {
   const selectedDiv = document.getElementById(divId);
