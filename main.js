@@ -98,3 +98,30 @@ const pies = [
 ];
 
 console.log('pies', pies);
+
+// Make printToDom
+const printToDom = (divId, textToPrint) => {
+  const selectedDiv = document.getElementById(divId);
+  selectedDiv.innerHTML = textToPrint;
+};
+
+// 3 cards to a row
+// nice big images
+// display all information in the pie objects
+const pieBuilder = () => {
+  // define domString
+  let domString = '';
+  // loop over pies array
+  for(let i = 0; i < pies.length; i++){
+    // add to domString
+    domString += '<div class="card">';
+    domString += `<h2>${pies[i].name}</h2>`;
+    domString += `<img src=${pies[i].imageUrl} />`;
+    domString += `<p>Ice Cream Flavor: ${pies[i].iceCream}</p>`;
+    domString += '</div>';
+  }
+  // call printToDom
+  printToDom('pie-place', domString);
+};
+
+pieBuilder();
