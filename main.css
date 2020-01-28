@@ -1,3 +1,18 @@
 body {
   background-color: yellow;
 }
+
+#pie-place {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.card {
+  border: 3px dashed limegreen;
+  width: 30%;
+  margin: 1%
+}
+
+img {
+  width: 100%
+}
